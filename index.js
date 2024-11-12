@@ -87,12 +87,12 @@ app.get("/Products/", async(req,res)=>{
 app.post("/Authentication/", async(req,res)=>{
     const snapshot= await User.get();
     const list = snapshot.docs.map((doc)=>(doc.data()))
-    var result="No valido"
+    var result="***Verifique los valores ingresados***"
     console.log(list)
     list.forEach(element => {
       if((element.User==req.body.User && element.Pass==req.body.Pass))
       {
-        result="Usuario y contraseña valida";
+        result="***Acceso autorizado***";
         return false;
       }
       console.log(element.User)
